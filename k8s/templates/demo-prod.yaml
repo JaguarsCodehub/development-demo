@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deployment-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deployment-demo
+  template:
+    metadata:
+      labels:
+        app: deployment-demo
+    spec:
+      containers:
+        - name: deployment-demo
+          image: jyotindrakt/development-demo:v1
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: deployment-demo
+spec:
+  type: LoadBalancer
+  selector: # scans for pods that match this selector
+    app: deployment-demo
+  ports:
+    - port: 80
+      protocol: TCP
