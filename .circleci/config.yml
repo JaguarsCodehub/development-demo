@@ -52,7 +52,8 @@ jobs:
             lke_var="export KUBECONFIG_DATA=$KUBE_VAR"
             echo $lke_var >> $BASH_ENV
       - kubernetes/install-kubectl
-      - kubernetes/install-kubeconfig
+      - kubernetes/install-kubeconfig:
+          kubeconfig: KUBECONFIG_DATA
       - helm/install-helm-client:
           version: v3.0.0
       - helm/upgrade-helm-chart:
