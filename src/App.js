@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Kubernetes + Devops</h1>
+        <h1>Kubernetes and Devops</h1>
       </header>
     </div>
   );
